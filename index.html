@@ -30,19 +30,48 @@
     line-height: 1.5;
   }
   header {
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    padding: 16px 32px;
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+    padding: 0 32px;
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 16px;
+    height: 64px;
+    box-shadow: 0 2px 12px rgba(37,99,235,0.25);
   }
-  .header-icon {
-    font-size: 22px;
-    line-height: 1;
+  .header-logo {
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    backdrop-filter: blur(4px);
   }
-  .header-text h1 { font-size: 17px; font-weight: 700; color: var(--text); }
-  .header-text p  { font-size: 12px; color: var(--muted); margin-top: 1px; }
+  .header-logo svg { width: 20px; height: 20px; }
+  .header-divider {
+    width: 1px; height: 28px;
+    background: rgba(255,255,255,0.2);
+    margin: 0 4px;
+  }
+  .header-text h1 {
+    font-size: 16px; font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.2px;
+  }
+  .header-text p {
+    font-size: 11px;
+    color: rgba(255,255,255,0.65);
+    margin-top: 1px;
+  }
+  .header-badge {
+    margin-left: auto;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.8);
+    font-weight: 500;
+  }
   .container { max-width: 1300px; margin: 0 auto; padding: 28px 24px; }
 
   /* Cards */
@@ -481,11 +510,24 @@
 </head>
 <body>
 <header>
-  <div class="header-icon">📊</div>
+  <div class="header-logo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="3" width="8" height="18" rx="1"/>
+      <rect x="13" y="3" width="8" height="18" rx="1"/>
+      <line x1="7" y1="8" x2="7" y2="8.01"/>
+      <line x1="17" y1="8" x2="17" y2="8.01"/>
+      <line x1="5" y1="12" x2="9" y2="12"/>
+      <line x1="15" y1="12" x2="19" y2="12"/>
+      <line x1="5" y1="16" x2="9" y2="16"/>
+      <line x1="15" y1="16" x2="19" y2="16"/>
+    </svg>
+  </div>
+  <div class="header-divider"></div>
   <div class="header-text">
     <h1>Comparador de Pre-Liquidaciones</h1>
     <p>Análisis de variaciones entre períodos</p>
   </div>
+  <div class="header-badge">San Andrés</div>
 </header>
 <div class="container">
 
