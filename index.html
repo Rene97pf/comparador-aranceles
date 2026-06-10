@@ -1017,9 +1017,10 @@ function setupConfig(){
   document.getElementById('col-monto').value=cols.find(c=>nstr(c).includes('haber'))||cols[0];
   // "Descripcion" col E = concepto (ARANCELES, COMEDOR...)
   const descCols=cols.filter(c=>nstr(c).includes('descripci'));
-  // First Descripcion = concepto (col E), last = product description
+  // First Descripcion = concepto (col E); product description is the 3rd "Descripción" column,
+  // which SheetJS renames to "Descripción_2" when headers are duplicated
   document.getElementById('col-concepto').value=descCols[0]||cols[0];
-  document.getElementById('col-desc').value=descCols[descCols.length-1]||cols[0];
+  document.getElementById('col-desc').value=cols.find(c=>nstr(c)==='descripcion_2')||descCols[descCols.length-1]||cols[0];
   document.getElementById('config-card').classList.add('visible');
 }
 
