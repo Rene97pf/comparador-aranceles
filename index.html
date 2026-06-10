@@ -809,9 +809,9 @@
 
     <!-- Tabs -->
     <div class="tabs">
-      <button class="tab altas active" onclick="switchTab('altas')">Altas <span class="count" id="tab-count-altas">0</span></button>
+      <button class="tab altas" onclick="switchTab('altas')">Altas <span class="count" id="tab-count-altas">0</span></button>
       <button class="tab bajas" onclick="switchTab('bajas')">Bajas <span class="count" id="tab-count-bajas">0</span></button>
-      <button class="tab cambios" onclick="switchTab('cambios')">Variaciones <span class="count" id="tab-count-cambios">0</span></button>
+      <button class="tab cambios active" onclick="switchTab('cambios')">Variaciones <span class="count" id="tab-count-cambios">0</span></button>
       <button class="tab sin-cambios" onclick="switchTab('sin-cambios')">Sin cambios <span class="count" id="tab-count-iguales">0</span></button>
       <button class="tab validacion" id="tab-validacion" onclick="switchTab('validacion')" style="display:none">Incorrectos <span class="count" id="tab-count-validacion">0</span></button>
     </div>
@@ -910,6 +910,7 @@ async function loadSheet(){
     const sel=document.getElementById('period-select');
     const selBar=document.getElementById('period-select-bar');
     sel.innerHTML=selBar.innerHTML=periodos.map(p=>`<option value="${p}">${p}</option>`).join('');
+    sel.value=selBar.value=periodos[periodos.length-1];
     document.getElementById('period-row').style.display='flex';
     document.getElementById('period-bar').classList.add('visible');
     status.className='sheet-status ok';
@@ -1087,7 +1088,7 @@ function runComparison(){
   currentConcepto=allConceptos[0]||'';
   document.getElementById('results').classList.add('visible');
   updateSummary();
-  switchTab('altas');
+  switchTab('cambios');
 }
 
 function nativeGet(row,col){
@@ -1103,7 +1104,7 @@ function selectConcepto(c){
   currentPage=1;
   document.querySelectorAll('.concept-btn').forEach(b=>b.classList.toggle('active',b.textContent===c));
   updateSummary();
-  switchTab('altas');
+  switchTab('cambios');
 }
 
 function updateSummary(){
